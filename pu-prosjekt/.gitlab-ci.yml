@@ -1,0 +1,34 @@
+stages:
+  - build
+  - test
+
+build_frontend:
+  stage: build
+  image: node:18
+  script:
+    - echo "Testing frontend..."
+    - cd frontend
+    - npm install
+    - npm run build
+    - npm run lint
+    - cd ..
+    - echo "Test successful."
+
+build_backend:
+  stage: build
+  image: maven:latest
+  script:
+    - echo "Testing backend..."
+    - cd backend
+    - mvn clean compile
+    - cd ..
+
+test_backend:
+  stage: test
+  image: maven:latest
+  needs: [build_backend]
+  script:
+    - cd backend
+    - mvn test
+    - cd ..
+    - echo "Test successful."
