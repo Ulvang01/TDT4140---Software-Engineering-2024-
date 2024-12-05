@@ -14,3 +14,5 @@ This repository contains the project developed for the **TDT4140 Software Engine
 This might not be the total final product as I currently dont have direct acces to my gitlab student account.
 The site is a ice-breaker game finder where you can sort favorite and add ice-breaker games
 
+### Removed google id and secrte key
+Google oauth secret key and id is removed for security so it wont work unless manually added
